@@ -17,6 +17,12 @@ skills-compatible AI agents.
 npx skills add theepan/ai-agent-skills
 ```
 
+Or install a specific skill directly:
+
+```
+npx skills add https://github.com/your-user/your-repo --skill java-code-review -g -y
+```
+
 ### Manual
 
 Copy the desired skill directory into your project's skills configuration.
