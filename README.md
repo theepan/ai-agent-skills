@@ -8,6 +8,7 @@ skills-compatible AI agents.
 | Skill | Description |
 |-------|-------------|
 | [java-code-review](skills/java-code-review/) | Review Java source code for bugs, security vulnerabilities, performance issues, and best practices |
+| [openapi-review](skills/openapi-review/) | Review OpenAPI specs for compliance, security, API design best practices, and documentation quality |
 
 ## Installation
 
