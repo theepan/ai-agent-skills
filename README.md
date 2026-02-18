@@ -7,6 +7,7 @@ skills-compatible AI agents.
 
 | Skill | Description |
 |-------|-------------|
+| [business-naming](skills/business-naming/) | Generate and evaluate names for companies, products, and brands using a structured three-phase process |
 | [java-code-review](skills/java-code-review/) | Review Java source code for bugs, security vulnerabilities, performance issues, and best practices |
 | [openapi-review](skills/openapi-review/) | Review OpenAPI specs for compliance, security, API design best practices, and documentation quality |
 
