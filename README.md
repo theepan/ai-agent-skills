@@ -5,12 +5,29 @@ Claude Code, Claude.ai, and other skills-compatible AI agents.
 
 ## Available Skills
 
-| Skill | Description |
-|-------|-------------|
-| [business-naming](skills/business-naming/) | Generate and evaluate names for companies, products, and brands using a structured three-phase process |
-| [domain-name-gen](skills/domain-name-gen/) | Generate short, pronounceable, catchy domain names for products, startups, or projects |
-| [java-code-review](skills/java-code-review/) | Review Java source code for bugs, security vulnerabilities, performance issues, AI-generated code quality, and dependency licensing risks |
-| [openapi-review](skills/openapi-review/) | Review OpenAPI specs for compliance, security, API design best practices, and documentation quality |
+### business-naming
+Generate and evaluate names for companies, products, and brands using a structured three-phase process.
+```
+npx skills add theepan/ai-agent-skills --skill business-naming -g -y
+```
+
+### domain-name-gen
+Generate short, pronounceable, catchy domain names for products, startups, or projects.
+```
+npx skills add theepan/ai-agent-skills --skill domain-name-gen -g -y
+```
+
+### java-code-review
+Review Java source code for bugs, security vulnerabilities, performance issues, AI-generated code quality, and dependency licensing risks.
+```
+npx skills add theepan/ai-agent-skills --skill java-code-review -g -y
+```
+
+### openapi-review
+Review OpenAPI specs for compliance, security, API design best practices, and documentation quality.
+```
+npx skills add theepan/ai-agent-skills --skill openapi-review -g -y
+```
 
 ## Installation
 
@@ -19,13 +36,7 @@ Claude Code, Claude.ai, and other skills-compatible AI agents.
 Install all skills from this repo:
 
 ```
-npx skills add theepan/ai-agent-skills
-```
-
-Install a specific skill:
-
-```
-npx skills add theepan/ai-agent-skills --skill business-naming
+npx skills add theepan/ai-agent-skills -g -y
 ```
 
 After installing, just mention the skill in your prompt:
