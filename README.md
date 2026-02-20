@@ -8,6 +8,7 @@ Claude Code, Claude.ai, and other skills-compatible AI agents.
 | Skill | Description |
 |-------|-------------|
 | [business-naming](skills/business-naming/) | Generate and evaluate names for companies, products, and brands using a structured three-phase process |
+| [domain-name-gen](skills/domain-name-gen/) | Generate short, pronounceable, catchy domain names for products, startups, or projects |
 | [java-code-review](skills/java-code-review/) | Review Java source code for bugs, security vulnerabilities, performance issues, AI-generated code quality, and dependency licensing risks |
 | [openapi-review](skills/openapi-review/) | Review OpenAPI specs for compliance, security, API design best practices, and documentation quality |
 
