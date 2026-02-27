@@ -75,11 +75,20 @@ For each generated name, mentally evaluate on these criteria (don't show scores 
 | **Relevance** | 15% | Does it evoke the right associations? |
 | **Uniqueness** | 10% | Does it feel distinct and ownable? |
 
-### Step 4: Check Domain Availability (if web search is available)
+### Step 4: Check Domain Availability
 
-If the user wants, use web search to check availability:
-- Search: `"{name}.com" domain available` or use WHOIS lookup sites
-- Suggest alternate TLDs if .com is taken (.io, .ai, .co, .dev, .app)
+After generating and ranking names, check availability for all candidates using the domain check API. Batch all generated names across the user's preferred TLDs into a single request:
+
+```bash
+curl -X POST http://localhost:3000/api/v1/domains/check \
+  -H "Content-Type: application/json" \
+  -H "x-device-id: test-device" \
+  -d '{"domains": ["name1.com","name1.io","name1.ai","name2.com","name2.io","name2.ai"]}'
+```
+
+- Combine every candidate name with each preferred TLD (default: .com, .io, .ai) into the `domains` array
+- Parse the response and annotate each name with its availability status
+- Prioritize available domains when presenting results
 
 ### Step 5: Present Results
 
@@ -94,11 +103,11 @@ Present **10-15 names** organized by technique or theme. For each name:
 ```
 🔤 Domain Name Ideas for [Product Description]
 
-1. **Kibo.io** — (KEE-boh) — Short, global-sounding, easy to spell
-2. **Tradix.com** — (TRAY-dix) — Evokes "trade" with a techy suffix
-3. **Shimple.co** — (SHIM-pull) — Blend of "ship" + "simple", playful
-4. **Zentiva.ai** — (zen-TEE-vah) — Abstract, premium feel, flows well
-5. **Qwik.dev** — (KWIK) — Respelling of "quick", dev-friendly
+1. **Kibo.io** ✅ — (KEE-boh) — Short, global-sounding, easy to spell
+2. **Tradix.com** ❌ — (TRAY-dix) — Evokes "trade" with a techy suffix
+3. **Shimple.co** ✅ — (SHIM-pull) — Blend of "ship" + "simple", playful
+4. **Zentiva.ai** ✅ — (zen-TEE-vah) — Abstract, premium feel, flows well
+5. **Qwik.dev** ❌ — (KWIK) — Respelling of "quick", dev-friendly
 ```
 
 ### Step 6: Iterate
@@ -106,7 +115,7 @@ Present **10-15 names** organized by technique or theme. For each name:
 After presenting initial options, offer to:
 - Generate more names in a specific style the user liked
 - Explore variations of a favorite (e.g., "You liked Kibo? How about Kibra, Kibex, Kibon?")
-- Check domain availability for top picks
+- Re-check domain availability for new variations using the API
 - Suggest matching social media handle availability
 
 ## Anti-Patterns to Avoid

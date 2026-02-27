@@ -29,6 +29,24 @@ Review OpenAPI specs for compliance, security, API design best practices, and do
 npx skills add theepan/ai-agent-skills --skill openapi-review -g -y
 ```
 
+### software-requirements
+Write professional software requirements documents (SRS, PRD, BRD, FRD, User Stories, Use Cases) with comprehensive coverage of functional, non-functional, interface, and data requirements.
+```
+npx skills add theepan/ai-agent-skills --skill software-requirements -g -y
+```
+
+### stock-screener
+Comprehensive growth stock screening and analysis combining quantitative financial screening with qualitative trend analysis.
+```
+npx skills add theepan/ai-agent-skills --skill stock-screener -g -y
+```
+
+### tariff-guide
+Create comprehensive, printable tariff and customs guide documents for any country or customs territory. Produces both Markdown and self-contained HTML with professional styling, worked examples, comparison tables, and print-ready layout.
+```
+npx skills add theepan/ai-agent-skills --skill tariff-guide -g -y
+```
+
 ## Installation
 
 ### Claude Code
