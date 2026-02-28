@@ -1,12 +1,12 @@
 ---
 name: learning-guide-creator
 description: >
-  Create comprehensive, research-backed ~30-page learning guide documents (.docx) on any topic.
+  Create comprehensive, research-backed ~30-page learning guide documents (.md) on any topic.
   Designed for beginners who want to study a new area from scratch with background information,
   real-world examples, and practical takeaways. Use this skill whenever the user asks to create
   a learning guide, study guide, research document, educational document, guidance document,
   beginner's guide, "teach me about X" document, training material, or any request that involves
-  researching a topic and producing a printable educational Word document. Also trigger when the
+  researching a topic and producing an educational Markdown document. Also trigger when the
   user says things like "I want to learn about...", "create a guide on...", "write a document
   explaining...", "research and write about...", "help me understand... as a document",
   "make me a study guide for...", or "create learning materials for...". This skill combines
@@ -17,10 +17,10 @@ description: >
 
 ## Overview
 
-This skill creates professional ~30-page .docx learning guides by:
+This skill creates comprehensive ~30-page Markdown learning guides by:
 1. Researching the topic thoroughly via web search (current data, regulations, best practices)
 2. Structuring content for a beginner audience with progressive complexity
-3. Generating a polished Word document with consistent professional formatting
+3. Writing a polished Markdown document with consistent formatting
 
 ## Workflow
 
@@ -54,9 +54,9 @@ Before writing, construct a chapter outline with approximately this structure (a
 
 ```
 FRONT MATTER
-  - Title Page (topic name, subtitle, date)
-  - Table of Contents
+  - Title (topic name, subtitle, date)
   - "Who This Guide Is For" (1 paragraph)
+  - Table of Contents (auto-generated from headings)
 
 PART 1: FOUNDATIONS (Chapters 1-3) — ~8 pages
   - Chapter 1: What Is [Topic]? — Big picture, why it matters, brief history
@@ -86,26 +86,22 @@ Aim for 8-12 chapters total. Adjust chapter count based on topic complexity.
 
 ### Phase 4 — Write the Document
 
-Read the docx skill at `/mnt/skills/public/docx/SKILL.md` before generating the document.
+Read the Markdown template reference at:
+`/mnt/skills/user/learning-guide-creator/references/md-template.md`
 
-Then read the document template reference at:
-`/mnt/skills/user/learning-guide-creator/references/docx-template.md`
-
-This contains the exact JavaScript code template with all helper functions and formatting
-that matches the established document style. **Use this template as the base for every document.**
+This shows the exact Markdown formatting conventions and structure to follow. **Use this template as the guide for every document.**
 
 **Writing guidelines:**
 - Write for someone who has ZERO background — explain everything from scratch
 - Use plain English first, then introduce technical terms with definitions
-- Every chapter should open with a 1-2 sentence "What you'll learn" statement
+- Every chapter should open with a 1-2 sentence italic "What you'll learn" statement
 - Use analogies and real-world comparisons to explain complex ideas
-- Include "Tip" boxes (blue left border) for practical advice
-- Include "Warning" boxes (red left border) for common mistakes or critical info
-- Include "Example" boxes (green left border) for real-world scenarios
+- Include **Tip** callouts for practical advice
+- Include **Warning** callouts for common mistakes or critical info
+- Include **Example** callouts for real-world scenarios
 - Use tables to compare options, summarize data, or present structured info
-- End each chapter with a "Key Takeaways" bullet list (3-5 points)
-- Aim for ~30 pages (approximately 8,000-10,000 words of content)
-- Include page breaks between chapters
+- End each chapter with a **Key Takeaways** bullet list (3-5 points)
+- Aim for ~30 pages equivalent (approximately 8,000-10,000 words of content)
 - Use specific numbers, dates, thresholds, and names from research (not vague generalities)
 
 **Tone:**
@@ -113,56 +109,28 @@ that matches the established document style. **Use this template as the base for
 - "Here's how this works..." not "This section will discuss..."
 - Active voice, direct sentences
 - Avoid jargon without explanation
-- When jargon is necessary, format as: "term (plain English explanation)"
+- When jargon is necessary, format as: "**term** (plain English explanation)"
 
-### Phase 5 — Generate the .docx
+### Phase 5 — Save the File
 
-Use `npm install -g docx` and the docx-js library to create the document.
-Follow ALL critical rules from the docx skill (page size, no unicode bullets, dual table widths, etc.).
+Write the Markdown file using a descriptive filename based on the topic:
+- Use kebab-case: `understanding-tariffs-guide.md`
+- Save to the current working directory
 
-After creating the file:
+Copy to outputs:
 ```bash
-python /mnt/skills/public/docx/scripts/office/validate.py output.docx
+cp output.md /mnt/user-data/outputs/
 ```
-
-Copy to outputs and present to user:
-```bash
-cp output.docx /mnt/user-data/outputs/
-```
-
-## Document Formatting Standards
-
-These match the established style from previous research/guidance documents:
-
-| Element | Specification |
-|---------|--------------|
-| Font | Arial throughout |
-| Body text | 10.5pt (size: 21 in docx-js) |
-| Heading 1 | 16pt, bold, dark blue (#1A5276) |
-| Heading 2 | 13pt, bold, medium blue (#2E86C1) |
-| Heading 3 | 11pt, bold, dark blue (#1A5276) |
-| Page size | US Letter (12240 x 15840 DXA) |
-| Margins | 1 inch all sides (1440 DXA) |
-| Line spacing | 1.15x (276 twips) on body text |
-| Tip boxes | Blue left border (#2E86C1), 12pt weight, indented |
-| Warning boxes | Red left border (#E74C3C), 12pt weight, indented |
-| Example boxes | Green left border (#27AE60), 12pt weight, indented |
-| Tables | Light blue header (#D5E8F0), gray borders (#CCCCCC) |
-| Title page | Large centered title, subtitle, date, dark blue accent |
-| Headers | Document title, right-aligned |
-| Footers | "Page X" centered |
-| Chapter breaks | Page break before each new chapter |
 
 ## Quality Checklist
 
 Before delivering, verify:
 - [ ] All research findings are incorporated with specific data points
 - [ ] Every technical term is explained in plain English on first use
-- [ ] Tip/Warning/Example boxes are distributed throughout (at least 2 per chapter)
+- [ ] Tip/Warning/Example callouts are distributed throughout (at least 2 per chapter)
 - [ ] Tables are used for comparisons and structured data
 - [ ] Key Takeaways appear at end of each chapter
 - [ ] Glossary covers all domain-specific terms used
 - [ ] References section lists actual sources from research
-- [ ] Document validates without errors
-- [ ] Page count is approximately 25-35 pages
-- [ ] TOC is included and heading hierarchy is correct
+- [ ] Word count is approximately 8,000-10,000 words
+- [ ] Heading hierarchy is correct (# > ## > ###)
