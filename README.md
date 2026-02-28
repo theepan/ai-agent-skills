@@ -24,7 +24,7 @@ npx skills add theepan/ai-agent-skills --skill java-code-review -g -y
 ```
 
 ### learning-guide-creator
-Create comprehensive, research-backed ~30-page learning guide documents (.docx) on any topic for beginners.
+Create comprehensive, research-backed ~50-page learning guides (.md) on any topic, written for experienced technical professionals.
 ```
 npx skills add theepan/ai-agent-skills --skill learning-guide-creator -g -y
 ```
