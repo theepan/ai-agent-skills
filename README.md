@@ -41,6 +41,12 @@ Write professional software requirements documents (SRS, PRD, BRD, FRD, User Sto
 npx skills add theepan/ai-agent-skills --skill software-requirements -g -y
 ```
 
+### saas-landing-theme
+Generate modern, light-themed SaaS landing pages with a warm editorial aesthetic, conversion-focused layout, and polished UI. Produces production-ready HTML or React/JSX with full design system baked in.
+```
+npx skills add theepan/ai-agent-skills --skill saas-landing-theme -g -y
+```
+
 ### stock-screener
 Comprehensive growth stock screening and analysis combining quantitative financial screening with qualitative trend analysis.
 ```
